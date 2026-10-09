@@ -1,0 +1,36 @@
+{
+  "schema_version": "racpith.section_scales_summary.v1",
+  "config_sha256": "a40f7c3c850bf093e25915206f6ec88c72402c57132c5a340ba3a95699df1ac8",
+  "params": {
+    "outer_ring_policy": "max_polygon_area",
+    "span_policy": "convex_hull_diameter",
+    "wref_ring_pairs": "all_adjacent_label_pairs",
+    "wref_samples_per_ring": 12,
+    "wref_pca_window": 8,
+    "wref_cone_angle_deg": 35.0,
+    "wref_max_spacing_px": 400.0,
+    "wref_quantile": 0.5,
+    "wmax_quantile": 0.9,
+    "grouping_near_ratio": 0.35,
+    "grouping_mid_ratio": 0.7
+  },
+  "n_sections": 102,
+  "n_crops": 5182,
+  "R_F_px": {
+    "min": 623.2231743123807,
+    "median": 1726.5692054055698,
+    "max": 2166.683691389121
+  },
+  "w_ref_px": {
+    "min": 34.01825589547152,
+    "median": 92.68061593077582,
+    "p90": 117.51390607380738,
+    "max": 141.51889361670993
+  },
+  "w_max_px": {
+    "median": 177.56806326050494
+  },
+  "section_scales_sha256": "f147d2dbbee9340ca6bd1f0dfb8e369b51f2b1b22d209a7e97b3f5199e6ad2de",
+  "scales_config_sha256": "74915aadb0e8e9f0dc50b7cdc2d8851736ed24adbc6c6d59e64d49cfc7337395",
+  "source_manifest_sha256": "664fc87ff05b4a48917e2169b4786710b0d40c98176fa1083a0ebcd208f9b7e4"
+}

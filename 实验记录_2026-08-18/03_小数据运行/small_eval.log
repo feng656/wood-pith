@@ -1,0 +1,38 @@
+val 样本 24 张，开始推理 …
+  [1/24] T6_B1_N27_A_s1000_n0 state=null error=1415px (0s/张, 剩余 0min)
+  [2/24] T6_B1_N27_A_s1000_n1 state=null error=1593px (0s/张, 剩余 0min)
+  [3/24] T6_B1_N27_A_s1000_n2 state=null error=2016px (0s/张, 剩余 0min)
+  [4/24] T6_B1_N27_A_s1000_n3 state=null error=1467px (0s/张, 剩余 0min)
+  [5/24] T6_B1_N27_A_s1000_n4 state=null error=1828px (0s/张, 剩余 0min)
+  [6/24] T6_B1_N27_A_s1000_n5 state=null error=1426px (0s/张, 剩余 0min)
+  [7/24] T6_B1_N27_A_s1000_n6 state=null error=1983px (0s/张, 剩余 0min)
+  [8/24] T6_B1_N27_A_s1000_n7 state=null error=1464px (0s/张, 剩余 0min)
+  [9/24] T6_B1_N27_A_s1200_n0 state=null error=1252px (0s/张, 剩余 0min)
+  [10/24] T6_B1_N27_A_s1200_n1 state=null error=4px (0s/张, 剩余 0min)
+  [11/24] T6_B1_N27_A_s1200_n2 state=null error=1258px (9s/张, 剩余 2min)
+  [12/24] T6_B1_N27_A_s1200_n3 state=null error=185px (18s/张, 剩余 4min)
+  [13/24] T6_B1_N27_A_s1200_n4 state=null error=43px (25s/张, 剩余 5min)
+  [14/24] T6_B1_N27_A_s1200_n5 state=null error=1540px (36s/张, 剩余 6min)
+  [15/24] T6_B1_N27_A_s1200_n6 state=null error=94px (41s/张, 剩余 6min)
+  [16/24] T6_B1_N27_A_s1200_n7 state=null error=986px (50s/张, 剩余 7min)
+  [17/24] T6_B1_N27_A_s400_n0 state=null error=49px (56s/张, 剩余 7min)
+  [18/24] T6_B1_N27_A_s400_n1 state=null error=1523px (61s/张, 剩余 6min)
+  [19/24] T6_B1_N27_A_s400_n2 state=null error=449px (66s/张, 剩余 5min)
+  [20/24] T6_B1_N27_A_s400_n3 state=null error=539px (70s/张, 剩余 5min)
+  [21/24] T6_B1_N27_A_s400_n5 state=null error=208px (74s/张, 剩余 4min)
+  [22/24] T6_B1_N27_A_s400_n6 state=null error=268px (78s/张, 剩余 3min)
+  [23/24] T6_B1_N27_A_s400_n7 state=null error=411px (82s/张, 剩余 1min)
+  [24/24] T6_B1_N27_A_s600_n1 state=null error=1673px (90s/张, 剩余 0min)
+
+== 总体 ==
+Traceback (most recent call last):
+  File "D:\教务处实习\wood_preproject\树髓定位\2D-OA-Pith-python-script-experiments-final\pith2d\scripts\13_eval_small.py", line 138, in <module>
+    main()
+    ~~~~^^
+  File "D:\教务处实习\wood_preproject\树髓定位\2D-OA-Pith-python-script-experiments-final\pith2d\scripts\13_eval_small.py", line 126, in main
+    "overall": stats(rows, "总体"),
+               ~~~~~^^^^^^^^^^^^^^
+  File "D:\教务处实习\wood_preproject\树髓定位\2D-OA-Pith-python-script-experiments-final\pith2d\scripts\13_eval_small.py", line 117, in stats
+    print(f"   样本 {summary['n']} · 有限估计 {summary['n_finite']} · "
+                                               ~~~~~~~^^^^^^^^^^^^
+KeyError: 'n_finite'

@@ -1,0 +1,1251 @@
+{
+  "summary": {
+    "denominator": 5182,
+    "trees": [
+      "T0",
+      "T2",
+      "T4",
+      "T6"
+    ],
+    "stage_status": {
+      "0": "PASS_WITH_RISK",
+      "1": "EXPLORATORY",
+      "2": "EXPLORATORY",
+      "3": "EXPLORATORY",
+      "4": "EXPLORATORY",
+      "5": "PASS_WITH_RISK",
+      "6": "EXPLORATORY",
+      "7": "EXPLORATORY"
+    },
+    "safe_prune": "OFF"
+  },
+  "stages": [
+    {
+      "stage": 0,
+      "status": "PASS_WITH_RISK",
+      "counts": {
+        "records": 5182,
+        "pith_in_crop": 1059,
+        "pith_outside_crop": 4123,
+        "target_domains": {
+          "TARGET_UNKNOWN": 5182
+        }
+      },
+      "metrics": [
+        {
+          "layer": "数值",
+          "metric": "完整清单记录",
+          "criterion": "每个 manifest crop 必须有 Stage 0 合同",
+          "observed": "100.00% (5182/5182)",
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "数值",
+          "metric": "pith 坐标有限",
+          "criterion": "坐标必须为两个有限数",
+          "observed": "100.00% (5182/5182)",
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "数值",
+          "metric": "硬不变量",
+          "criterion": "source/crop 往返、图外 GT 保持、lineage 和固定变换均为 true",
+          "observed": "100.00% (5182/5182)",
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "数据语义",
+          "metric": "图外 GT 未裁剪",
+          "criterion": "pith_outside_not_clipped 必须为 true",
+          "observed": "100.00% (5182/5182)",
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "科学",
+          "metric": "目标域认证",
+          "criterion": "冻结计划要求 TARGET_ALIGNED/ECCENTRIC_GT 或明确适用域证据",
+          "observed": {
+            "TARGET_UNKNOWN": 5182
+          },
+          "decision": "未达标",
+          "note": "全部为 TARGET_UNKNOWN，不能宣称生物学髓心适用域已认证。"
+        },
+        {
+          "layer": "使用",
+          "metric": "物理尺度",
+          "criterion": "mm_per_pixel 用于毫米精度及应用门",
+          "observed": "0.00% (0/5182)",
+          "decision": "未达标",
+          "note": "只能报告 pixel / normalized / projective 指标。"
+        },
+        {
+          "layer": "科学",
+          "metric": "变换等变 replay",
+          "criterion": "计划要求 fixture replay 的 E_equiv 记录",
+          "observed": "未提供数值 replay 产物",
+          "decision": "NOT_MEASURABLE_FROM_CURRENT_ARTIFACT",
+          "note": ""
+        }
+      ],
+      "three_layers": [
+        [
+          "数值有效性",
+          "PASS",
+          "完整、有限坐标和记录的硬不变量均通过。"
+        ],
+        [
+          "科学有效性",
+          "PASS_WITH_RISK",
+          "坐标合同成立，但目标域全为未知，无法认证公共径向中心等同生物学髓心。"
+        ],
+        [
+          "使用有效性",
+          "PASS_WITH_RISK",
+          "允许进入几何研究链；无毫米尺度且无目标域认证。"
+        ]
+      ],
+      "downstream": "下游可解释为局部径向汇聚几何研究；不得报告毫米误差、TARGET_ALIGNED 结论或生物学髓心适用域结论。"
+    },
+    {
+      "stage": 1,
+      "status": "EXPLORATORY",
+      "counts": {
+        "crops": 5182,
+        "input_fragments": 72975,
+        "eligible_fragments": 68417,
+        "fragment_records": 68417,
+        "invalid_reasons": {
+          "INVALID_FRAGMENT_TOO_FEW_POINTS": 4558
+        }
+      },
+      "metrics": [
+        {
+          "layer": "数值",
+          "metric": "crop 清单完整",
+          "criterion": "每个 manifest crop 有 summary",
+          "observed": "100.00% (5182/5182)",
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "数据",
+          "metric": "fragment 保留率",
+          "criterion": "按输入 fragment 全分母保留并报告原因",
+          "observed": "93.75% (68417/72975)",
+          "decision": "满足",
+          "note": "未进入连续测量的 4558 条：{'INVALID_FRAGMENT_TOO_FEW_POINTS': 4558}"
+        },
+        {
+          "layer": "数值",
+          "metric": "eligible 输出一致",
+          "criterion": "fragments.jsonl 中 eligible 数必须等于 summary",
+          "observed": "68417/68417",
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "数值",
+          "metric": "切向单位范数",
+          "criterion": "所有采样切向应为单位向量（实现容差 0.08）",
+          "observed": {
+            "violations": 0,
+            "total": 2163263,
+            "abs_norm_error": {
+              "n": 2163263,
+              "min": 0.0,
+              "median": 2.2894097373438171e-07,
+              "p90": 4.623973068884624e-07,
+              "max": 7.049982484463868e-07
+            }
+          },
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "数值",
+          "metric": "积分弧长权重 ds",
+          "criterion": "每条连续弧 ds 非负且和为正",
+          "observed": "100.00% (68417/68417)",
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "数值",
+          "metric": "quadrature 节点",
+          "criterion": "冻结实现使用 K=32，并需有 2K 收敛 replay",
+          "observed": {
+            "16": 607,
+            "17": 110,
+            "18": 125,
+            "19": 118,
+            "20": 124,
+            "21": 133,
+            "22": 124,
+            "23": 195,
+            "24": 149,
+            "25": 123,
+            "26": 156,
+            "27": 156,
+            "28": 158,
+            "29": 173,
+            "30": 188,
+            "31": 193,
+            "32": 65585
+          },
+          "decision": "部分满足",
+          "note": "K=32 记录存在；当前产物没有独立 K→2K replay。"
+        },
+        {
+          "layer": "科学",
+          "metric": "不确定度标定来源",
+          "criterion": "真实重复标注应支持 Sigma_x / sigma_psi",
+          "observed": {
+            "spline_bootstrap_fallback_no_repeat_annotations": 68417
+          },
+          "decision": "未达标",
+          "note": "全部为 spline bootstrap fallback，未提供重复标注 calibration。"
+        },
+        {
+          "layer": "科学",
+          "metric": "复制/插值/切分证据守恒 replay",
+          "criterion": "计划要求三类 replay 比较 J、state 和 parent budget",
+          "observed": "未提供 replay 产物",
+          "decision": "NOT_MEASURABLE_FROM_CURRENT_ARTIFACT",
+          "note": ""
+        },
+        {
+          "layer": "使用",
+          "metric": "每 crop omega 预算",
+          "criterion": "parent-balanced budget 应可审计",
+          "observed": {
+            "n": 5182,
+            "min": 1.9999999999999998,
+            "median": 11.0,
+            "p90": 17.0,
+            "max": 22.000000000000004
+          },
+          "decision": "满足",
+          "note": "数值预算已汇总；尚无 split/duplicate replay 证明。"
+        }
+      ],
+      "three_layers": [
+        [
+          "数值有效性",
+          "PASS",
+          "连续弧的切向与 ds 硬检查通过。"
+        ],
+        [
+          "科学有效性",
+          "EXPLORATORY",
+          "缺少重复标注、overlay、平滑尺度和证据守恒 replay。"
+        ],
+        [
+          "使用有效性",
+          "EXPLORATORY",
+          "可作为冻结测量输入研究，不可称已标定的测量不确定度。"
+        ]
+      ],
+      "downstream": "允许以当前连续弧继续搜索；不得把 sigma 当作正式校准尺度，也不得用该结果签发 X4/X5。"
+    },
+    {
+      "stage": 2,
+      "status": "EXPLORATORY",
+      "counts": {
+        "preflight": 5182,
+        "registries": 5182,
+        "routes": {
+          "AXIS_ONLY": 30,
+          "POINT_CANDIDATE": 5152
+        },
+        "seed_primary_source": {
+          "CS1": 5182,
+          "CS2": 188345,
+          "CS4": 25073,
+          "CS5": 76078,
+          "CS6_FAR_MESH": 433558,
+          "CS6_FINITE_MESH": 418564
+        },
+        "seed_alias_coverage": {
+          "CS1": 5182,
+          "CS2": 190725,
+          "CS3": 190725,
+          "CS4": 36086,
+          "CS5": 77729,
+          "CS6_FAR_MESH": 456562,
+          "CS6_FINITE_MESH": 419742
+        }
+      },
+      "metrics": [
+        {
+          "layer": "数值",
+          "metric": "preflight/registry 完整",
+          "criterion": "每个 manifest crop 都有二者",
+          "observed": {
+            "preflight": "100.00% (5182/5182)",
+            "seed_registry": "100.00% (5182/5182)"
+          },
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "数值",
+          "metric": "seed 数分布",
+          "criterion": "记录的 seed_count 必须与 seeds 长度一致且方向单位化",
+          "observed": {
+            "per_crop": {
+              "n": 5182,
+              "min": 177.0,
+              "median": 215.0,
+              "p90": 260.0,
+              "max": 310.0
+            },
+            "total": 1146800,
+            "invalid_direction": 0
+          },
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "科学",
+          "metric": "六源候选覆盖",
+          "criterion": "按 source_aliases 覆盖 CS1/CS2/CS3/CS4/CS5/CS6 finite/far，并保留主 source 统计",
+          "observed": {
+            "primary_source": {
+              "CS1": 5182,
+              "CS2": 188345,
+              "CS4": 25073,
+              "CS5": 76078,
+              "CS6_FAR_MESH": 433558,
+              "CS6_FINITE_MESH": 418564
+            },
+            "alias_coverage": {
+              "CS1": 5182,
+              "CS2": 190725,
+              "CS3": 190725,
+              "CS4": 36086,
+              "CS5": 77729,
+              "CS6_FAR_MESH": 456562,
+              "CS6_FINITE_MESH": 419742
+            },
+            "missing_aliases": []
+          },
+          "decision": "满足",
+          "note": "主 source 没有单独列出 CS3 不等于 CS3 缺失；应以 alias coverage 判断候选家族是否覆盖。"
+        },
+        {
+          "layer": "科学",
+          "metric": "预检分布",
+          "criterion": "预检只用于路由/分层，不直接作为状态",
+          "observed": {
+            "routes": {
+              "AXIS_ONLY": 30,
+              "POINT_CANDIDATE": 5152
+            },
+            "eligible_parent_ring_count": {
+              "n": 5182,
+              "min": 2.0,
+              "median": 11.0,
+              "p90": 17.0,
+              "max": 22.0
+            },
+            "total_arc_norm": {
+              "n": 5182,
+              "min": 4.223419027117642,
+              "median": 19.12792766679719,
+              "p90": 30.217201307267445,
+              "max": 62.16102694140687
+            },
+            "Theta_total_rad": {
+              "n": 5182,
+              "min": 3.338701081997954,
+              "median": 25.755487378996577,
+              "p90": 83.93382887091926,
+              "max": 421.4137577481385
+            },
+            "B_spatial": {
+              "n": 5182,
+              "min": 0.026312140592779715,
+              "median": 1.152430526658724,
+              "p90": 1.4103942972314518,
+              "max": 1.8055753107086718
+            },
+            "T_span_rad": {
+              "n": 5182,
+              "min": 0.6325299950372374,
+              "median": 3.0982333582964605,
+              "p90": 3.138679552394868,
+              "max": 3.1415666535897953
+            },
+            "g_svd": {
+              "n": 5182,
+              "min": 0.04681920280124047,
+              "median": 0.37165986993889166,
+              "p90": 0.6929313920927491,
+              "max": 0.9562792950844307
+            },
+            "truncation_ratio": {
+              "n": 5182,
+              "min": 0.0,
+              "median": 0.0,
+              "p90": 0.0,
+              "max": 0.0
+            }
+          },
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "科学",
+          "metric": "reference basin recall",
+          "criterion": "冻结计划要求同目标高预算 reference 对照",
+          "observed": "未提供 reference_basin_matching",
+          "decision": "NOT_MEASURABLE_FROM_CURRENT_ARTIFACT",
+          "note": ""
+        },
+        {
+          "layer": "科学",
+          "metric": "cold-start ablation / coarse loss map",
+          "criterion": "计划要求六源消融和 finite/far loss map",
+          "observed": "未提供产物",
+          "decision": "NOT_MEASURABLE_FROM_CURRENT_ARTIFACT",
+          "note": ""
+        },
+        {
+          "layer": "使用",
+          "metric": "搜索闭合结论",
+          "criterion": "仅在 relevant-mode/global-best recall 达到预注册门后成立",
+          "observed": "reference 缺失",
+          "decision": "未达标",
+          "note": ""
+        }
+      ],
+      "three_layers": [
+        [
+          "数值有效性",
+          "PASS",
+          "预检与 seed registry 齐全，seed 方向均有效。"
+        ],
+        [
+          "科学有效性",
+          "EXPLORATORY",
+          "候选库已生成，但缺少同目标 reference basin、消融和 coarse-map 证据。"
+        ],
+        [
+          "使用有效性",
+          "EXPLORATORY",
+          "可将候选传入 All-Arc；不得据此声称冷启动已覆盖所有相关 basin。"
+        ]
+      ],
+      "downstream": "Stage 3 的 Search Certificate 仍需承担拒识责任；不能仅以 Stage 2 完整运行证明全局搜索。"
+    },
+    {
+      "stage": 3,
+      "status": "EXPLORATORY",
+      "counts": {
+        "estimates": 5182,
+        "certificates_passed": 4597,
+        "certificates_failed": 585,
+        "scientifically_usable": 4591,
+        "blocked_geometry": 591,
+        "estimate_status": {
+          "MODEL_CONFLICT": 12,
+          "OK": 4591,
+          "SEARCH_INADEQUATE": 579
+        },
+        "certificate_reasons": {
+          "ALL_MODES_STATIONARY": 10,
+          "BASIN_MATCH_STABLE": 13,
+          "BOUNDARY_NOT_PINNED": 40,
+          "COMPONENT_COUNT_STABLE": 18,
+          "FAR_FIELD_NOT_MAX_RADIUS_POINT": 40,
+          "GRID_PHASE_STABLE": 550,
+          "LOSS_STABLE": 19,
+          "NO_NEW_RELEVANT_LOW_LOSS_CELL": 24,
+          "SEAM_PASSED": 2
+        }
+      },
+      "metrics": [
+        {
+          "layer": "数值",
+          "metric": "estimate/certificate 完整",
+          "criterion": "每个 manifest crop 一条 estimate 和 certificate",
+          "observed": {
+            "estimate": "100.00% (5182/5182)",
+            "certificate": "100.00% (5182/5182)"
+          },
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "数值",
+          "metric": "Search Certificate",
+          "criterion": "所有关键 checks 通过才允许几何解释",
+          "observed": {
+            "passed": "88.71% (4597/5182)",
+            "failed": 585,
+            "failed_checks": {
+              "all_modes_stationary": 10,
+              "basin_match_stable": 13,
+              "boundary_not_pinned": 40,
+              "component_count_stable": 18,
+              "far_field_not_max_radius_point": 40,
+              "grid_phase_stable": 550,
+              "loss_stable": 19,
+              "no_new_relevant_low_loss_cell": 24,
+              "seam_passed": 2
+            },
+            "reasons": {
+              "ALL_MODES_STATIONARY": 10,
+              "BASIN_MATCH_STABLE": 13,
+              "BOUNDARY_NOT_PINNED": 40,
+              "COMPONENT_COUNT_STABLE": 18,
+              "FAR_FIELD_NOT_MAX_RADIUS_POINT": 40,
+              "GRID_PHASE_STABLE": 550,
+              "LOSS_STABLE": 19,
+              "NO_NEW_RELEVANT_LOW_LOSS_CELL": 24,
+              "SEAM_PASSED": 2
+            }
+          },
+          "decision": "未达标",
+          "note": ""
+        },
+        {
+          "layer": "数值",
+          "metric": "预算/盆地收敛观测",
+          "criterion": "报告 B→2B 的 loss、位置和 basin 数，具体容差在 certificate 固定",
+          "observed": {
+            "relative_best_loss_change": {
+              "n": 5182,
+              "min": 0.0,
+              "median": 0.0,
+              "p90": 4.234822894511118e-15,
+              "max": 0.2582467861019527
+            },
+            "max_basin_match_rp2": {
+              "n": 5182,
+              "min": 0.0,
+              "median": 0.0,
+              "p90": 0.0,
+              "max": 0.26031843871316096
+            },
+            "basin_count_B": {
+              "n": 5182,
+              "min": 1.0,
+              "median": 1.0,
+              "p90": 1.0,
+              "max": 2.0
+            },
+            "basin_count_2B": {
+              "n": 5182,
+              "min": 1.0,
+              "median": 1.0,
+              "p90": 1.0,
+              "max": 3.0
+            }
+          },
+          "decision": "满足",
+          "note": "仅说明当前 certificate 内的一致性，不替代独立 reference-search。"
+        },
+        {
+          "layer": "科学",
+          "metric": "All-Arc 与 tail guard",
+          "criterion": "联合报告 J_abs、M50、U20，不能只以 loss 判髓心正确",
+          "observed": {
+            "J_abs": {
+              "n": 5182,
+              "min": 0.07768900276276432,
+              "median": 0.5084603957383111,
+              "p90": 1.0733125886495951,
+              "max": 5.669481759010461
+            },
+            "M50": {
+              "n": 5182,
+              "min": 0.05332238388612925,
+              "median": 0.39690287526996026,
+              "p90": 0.8590541193374591,
+              "max": 4.355577735409433
+            },
+            "U20": {
+              "n": 5182,
+              "min": 0.1053915516745211,
+              "median": 1.0049251172087157,
+              "p90": 2.2039482342270973,
+              "max": 16.767331342666715
+            },
+            "P90": {
+              "n": 3223,
+              "min": 0.1527823679385155,
+              "median": 0.8747958973234655,
+              "p90": 1.9429631373757983,
+              "max": 12.06255186984252
+            }
+          },
+          "decision": "满足",
+          "note": "这些仅为目标函数诊断。"
+        },
+        {
+          "layer": "科学",
+          "metric": "几何结果状态",
+          "criterion": "SEARCH_INADEQUATE / MODEL_CONFLICT 不可作为 POINT/RANGE/AXIS 解释",
+          "observed": {
+            "estimate_status": {
+              "MODEL_CONFLICT": 12,
+              "OK": 4591,
+              "SEARCH_INADEQUATE": 579
+            },
+            "certificate_pass_but_not_OK": 6,
+            "scientifically_usable": 4591,
+            "blocked_geometry": 591,
+            "reason_codes": {}
+          },
+          "decision": "部分满足",
+          "note": "certificate 失败为 585；再加上 certificate 通过但 MODEL_CONFLICT 的样本后，共 591 个 crop 不能作几何解释。"
+        },
+        {
+          "layer": "科学",
+          "metric": "独立 reference basin recall",
+          "criterion": "计划要求高预算同目标 reference 子集",
+          "observed": "未提供 matching 产物",
+          "decision": "NOT_MEASURABLE_FROM_CURRENT_ARTIFACT",
+          "note": ""
+        },
+        {
+          "layer": "使用",
+          "metric": "允许输出几何状态",
+          "criterion": "仅 certificate 通过且 status=OK 的 crop 可交给 Stage 4/5",
+          "observed": "88.60% (4591/5182)",
+          "decision": "部分满足",
+          "note": ""
+        }
+      ],
+      "three_layers": [
+        [
+          "数值有效性",
+          "PARTIAL_PASS",
+          "4597 个 crop 的 certificate 完整通过；585 个未通过。"
+        ],
+        [
+          "科学有效性",
+          "EXPLORATORY",
+          "缺少独立 reference basin 对照，不能证明全局覆盖。"
+        ],
+        [
+          "使用有效性",
+          "PARTIAL",
+          "591 个 certificate 失败或模型冲突 crop 必须 REJECT；其余仅可继续研究级解释。"
+        ]
+      ],
+      "downstream": "591 个 certificate 失败或模型冲突 crop 不能支持 POINT/RANGE/AXIS 结论；不得从精度统计中删除。"
+    },
+    {
+      "stage": 4,
+      "status": "EXPLORATORY",
+      "counts": {
+        "states": 5182,
+        "profiles": 4597,
+        "refinements": 4597,
+        "state_counts": {
+          "MULTIMODAL": 400,
+          "POINT_CANDIDATE": 2128,
+          "RANGE_UNCERTAIN": 1496,
+          "REJECT": 1158
+        },
+        "reason_counts": {
+          "DIRECTION_NOT_IDENTIFIABLE": 43,
+          "EMPTY_SUPPORT": 194,
+          "FINITE_RANGE_SUPPORT_WIDE": 1496,
+          "MULTIPLE_PERSISTENT_COMPONENTS": 400,
+          "NUMERICAL_UNSTABLE": 302,
+          "SEARCH_CERTIFICATE_FAILED": 585,
+          "TOPOLOGY_FRAGILE": 34,
+          "UNCALIBRATED_FOUR_TREE_DATASET": 2128
+        }
+      },
+      "metrics": [
+        {
+          "layer": "数值",
+          "metric": "state 记录完整",
+          "criterion": "每个 manifest crop 必须有 state（包含 REJECT）",
+          "observed": "100.00% (5182/5182)",
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "数值",
+          "metric": "profile/refinement 路由",
+          "criterion": "只对通过上游搜索的样本做 profile/refinement；REJECT 可无此产物",
+          "observed": {
+            "profiles": 4597,
+            "refinements": 4597,
+            "upstream/no-profile": 585
+          },
+          "decision": "满足",
+          "note": "无 profile 的记录保留在 states.jsonl，未从分母删除。"
+        },
+        {
+          "layer": "数值",
+          "metric": "dense refit 稳定性",
+          "criterion": "numerical_stable 与 stationary 必须为 true 才可作数值精化解释",
+          "observed": {
+            "stable": "93.43% (4295/4597)",
+            "stationary": "100.00% (4597/4597)",
+            "rp2_shift_rad": {
+              "n": 4597,
+              "min": 9.01858851395519e-07,
+              "median": 0.00023057570475825862,
+              "p90": 0.00607532525033559,
+              "max": 0.20908456585422924
+            },
+            "gradient_norm": {
+              "n": 4597,
+              "min": 0.0,
+              "median": 9.03656067776681e-08,
+              "p90": 8.726447951514981e-07,
+              "max": 0.007823339229257511
+            }
+          },
+          "decision": "部分满足",
+          "note": ""
+        },
+        {
+          "layer": "科学",
+          "metric": "delta family 嵌套",
+          "criterion": "delta 增大时 support_cells 不应减少；要报告 component/infinity",
+          "observed": {
+            "delta_records": 13791,
+            "nesting_violations": 0,
+            "components_total": 13123,
+            "touches_infinity": 2244
+          },
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "科学",
+          "metric": "五态分布",
+          "criterion": "POINT/RANGE/AXIS/MULTIMODAL/REJECT 必须分开报告",
+          "observed": {
+            "MULTIMODAL": 400,
+            "POINT_CANDIDATE": 2128,
+            "RANGE_UNCERTAIN": 1496,
+            "REJECT": 1158
+          },
+          "decision": "满足",
+          "note": "POINT_CANDIDATE 不等于正式 POINT。"
+        },
+        {
+          "layer": "科学",
+          "metric": "coverage calibration",
+          "criterion": "独立 calibration trees 和冻结 delta_alpha 才可报告 coverage/正式 POINT",
+          "observed": "0.00% (0/5182)",
+          "decision": "未达标",
+          "note": "所有状态均为未校准。"
+        },
+        {
+          "layer": "科学",
+          "metric": "profile replay / topology 稳定",
+          "criterion": "计划要求邻近 delta 与 search replay 的稳定性",
+          "observed": "未提供独立 replay 产物",
+          "decision": "NOT_MEASURABLE_FROM_CURRENT_ARTIFACT",
+          "note": ""
+        },
+        {
+          "layer": "使用",
+          "metric": "输出等级限制",
+          "criterion": "未校准时仅 POINT_CANDIDATE / X3 研究级",
+          "observed": {
+            "DIRECTION_NOT_IDENTIFIABLE": 43,
+            "EMPTY_SUPPORT": 194,
+            "FINITE_RANGE_SUPPORT_WIDE": 1496,
+            "MULTIPLE_PERSISTENT_COMPONENTS": 400,
+            "NUMERICAL_UNSTABLE": 302,
+            "SEARCH_CERTIFICATE_FAILED": 585,
+            "TOPOLOGY_FRAGILE": 34,
+            "UNCALIBRATED_FOUR_TREE_DATASET": 2128
+          },
+          "decision": "满足",
+          "note": "当前状态不可升级为 calibrated POINT。"
+        }
+      ],
+      "three_layers": [
+        [
+          "数值有效性",
+          "PARTIAL_PASS",
+          "state 完整，且大多数 refinement 稳定；上游拒识样本正确不做 profile。"
+        ],
+        [
+          "科学有效性",
+          "EXPLORATORY",
+          "有 profile 和 delta-family，但没有独立 calibration/replay 和 controlled reference。"
+        ],
+        [
+          "使用有效性",
+          "EXPLORATORY",
+          "可输出 POINT_CANDIDATE、RANGE_UNCERTAIN、MULTIMODAL 或 REJECT；不能签发正式 POINT。"
+        ]
+      ],
+      "downstream": "Stage 5 必须保留 calibration 未满足和 target risk；不得将 POINT_CANDIDATE 重命名为 POINT。"
+    },
+    {
+      "stage": 5,
+      "status": "PASS_WITH_RISK",
+      "counts": {
+        "records": 5182,
+        "geometry": {
+          "MULTIMODAL": 400,
+          "POINT_CANDIDATE": 2128,
+          "RANGE_UNCERTAIN": 1496,
+          "REJECT": 1158
+        },
+        "risk": {
+          "HARD_REJECT": 1158,
+          "POINT_BLOCKING": 66,
+          "UNKNOWN": 3958
+        },
+        "execution": {
+          "X0_INVALID": 1158,
+          "X1_GEOMETRY_WEAK": 400,
+          "X2_DIRECTION_USABLE": 1496,
+          "X3_FINITE_RESEARCH": 2128
+        },
+        "reasons": {
+          "CALIBRATION_POWER_INSUFFICIENT": 3958,
+          "GEOMETRY_OR_SEARCH_INVALID": 1158,
+          "MULTIMODAL_GEOMETRY": 400,
+          "STRUCTURED_RESIDUAL_OOF_HIGH": 66,
+          "TARGET_ALIGNMENT_UNKNOWN": 3958
+        }
+      },
+      "metrics": [
+        {
+          "layer": "数值",
+          "metric": "execution/risk 完整",
+          "criterion": "每个 manifest crop 必须有 execution 和 risk record",
+          "observed": "100.00% (5182/5182)",
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "数值",
+          "metric": "几何－执行等级逻辑",
+          "criterion": "REJECT→X0/X1，POINT_CANDIDATE→X3，RANGE→X2",
+          "observed": {
+            "inconsistencies": 0,
+            "geometry_execution": {
+              "geometry": {
+                "MULTIMODAL": 400,
+                "POINT_CANDIDATE": 2128,
+                "RANGE_UNCERTAIN": 1496,
+                "REJECT": 1158
+              },
+              "execution": {
+                "X0_INVALID": 1158,
+                "X1_GEOMETRY_WEAK": 400,
+                "X2_DIRECTION_USABLE": 1496,
+                "X3_FINITE_RESEARCH": 2128
+              }
+            }
+          },
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "数值",
+          "metric": "坐标保持",
+          "criterion": "风险模块不得在运行时替代 All-Arc 坐标",
+          "observed": "100.00% (5182/5182)",
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "科学",
+          "metric": "structured residual OOF",
+          "criterion": "报告 OOF 而非用 loss 直接判风险",
+          "observed": {
+            "R2_struct_oof": {
+              "n": 4024,
+              "min": -110.85767837172776,
+              "median": -0.016803437406499477,
+              "p90": 0.09819532526396987,
+              "max": 0.7176034174664243
+            },
+            "systematic_structure_flag": 66
+          },
+          "decision": "满足",
+          "note": "仅是内部诊断，尚非独立风险 capture 评价。"
+        },
+        {
+          "layer": "科学",
+          "metric": "measurement/search replay 标记",
+          "criterion": "Stage 3 certificate 与 Stage 4 stable 应进入风险档案",
+          "observed": {
+            "certificate": "88.71% (4597/5182)",
+            "stable": "94.17% (4880/5182)"
+          },
+          "decision": "部分满足",
+          "note": ""
+        },
+        {
+          "layer": "科学",
+          "metric": "common-bias capture / false-veto",
+          "criterion": "需要预注册灾难门、独立 fixture 和风险—覆盖曲线",
+          "observed": {
+            "NOT_CALIBRATED_FOUR_TREE_DATASET": 5182
+          },
+          "decision": "NOT_MEASURABLE_FROM_CURRENT_ARTIFACT",
+          "note": ""
+        },
+        {
+          "layer": "科学",
+          "metric": "target domain",
+          "criterion": "TARGET_UNKNOWN 不能当作 LOW_RISK 或目标模型通过",
+          "observed": {
+            "HARD_REJECT": 1158,
+            "POINT_BLOCKING": 66,
+            "UNKNOWN": 3958
+          },
+          "decision": "未达标",
+          "note": "所有目标域为未知，风险状态 UNKNOWN 占主导。"
+        },
+        {
+          "layer": "使用",
+          "metric": "最高执行等级",
+          "criterion": "无独立 calibration、target-domain 认证和风险 capture 时最高为 X3",
+          "observed": {
+            "X0_INVALID": 1158,
+            "X1_GEOMETRY_WEAK": 400,
+            "X2_DIRECTION_USABLE": 1496,
+            "X3_FINITE_RESEARCH": 2128
+          },
+          "decision": "满足",
+          "note": "未出现 X4/X5；此限制符合计划。"
+        }
+      ],
+      "three_layers": [
+        [
+          "数值有效性",
+          "PASS",
+          "执行档案完整，状态与执行等级映射一致，坐标未被风险模块改写。"
+        ],
+        [
+          "科学有效性",
+          "PASS_WITH_RISK",
+          "诊断已计算，但没有独立 common-bias capture、false-veto 或风险—覆盖验证。"
+        ],
+        [
+          "使用有效性",
+          "PASS_WITH_RISK",
+          "输出严格限制到 X0–X3；不得解释成 target/model 风险已被证实控制。"
+        ]
+      ],
+      "downstream": "保留 All-Arc 坐标与 UNKNOWN 风险，Stage 6/7 只能解释贡献和 shadow evaluation，不能将风险状态升级为已校准。"
+    },
+    {
+      "stage": 6,
+      "status": "EXPLORATORY",
+      "counts": {
+        "crop_summaries": 5182,
+        "selected_exact": 15797,
+        "resolved_exact": 15532,
+        "unresolved_search": 265,
+        "exact_status": {
+          "EXACT": 15532,
+          "UNRESOLVED_SEARCH": 265
+        },
+        "roles": {
+          "BENEFICIAL_GT": 3801,
+          "DIRECTION_CRITICAL": 5634,
+          "HARMFUL_GT": 2121,
+          "HIGH_LEVERAGE": 1847,
+          "MODE_EXCLUSION": 129,
+          "RANGE_CRITICAL": 848,
+          "REDUNDANT": 4388,
+          "UNRESOLVED": 1372
+        }
+      },
+      "metrics": [
+        {
+          "layer": "数值",
+          "metric": "crop summary 完整",
+          "criterion": "每个 manifest crop 有 contribution summary（含无 exact 的记录）",
+          "observed": "100.00% (5182/5182)",
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "数值",
+          "metric": "exact delete-refit 完成率",
+          "criterion": "selected exact group 必须分为 resolved 或 UNRESOLVED_SEARCH",
+          "observed": {
+            "selected": 15797,
+            "resolved": 15532,
+            "unresolved": 265,
+            "resolved_rate": "98.32% (15532/15797)"
+          },
+          "decision": "部分满足",
+          "note": "未闭合 delete search 不能赋正/负贡献。"
+        },
+        {
+          "layer": "数值",
+          "metric": "delete Search Certificate",
+          "criterion": "status=EXACT 的 delete-refit 必须重新通过 certificate",
+          "observed": {
+            "exact_records": 15532,
+            "certificate_passed": 15532,
+            "pass_rate_among_exact": "100.00% (15532/15532)"
+          },
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "科学",
+          "metric": "贡献角色与多通道量",
+          "criterion": "C_GT/C_phi/C_range/C_mode/conflict 必须分别报告",
+          "observed": {
+            "roles": {
+              "BENEFICIAL_GT": 3801,
+              "DIRECTION_CRITICAL": 5634,
+              "HARMFUL_GT": 2121,
+              "HIGH_LEVERAGE": 1847,
+              "MODE_EXCLUSION": 129,
+              "RANGE_CRITICAL": 848,
+              "REDUNDANT": 4388,
+              "UNRESOLVED": 1372
+            },
+            "C_shift_proj": {
+              "n": 15532,
+              "min": 9.257399609990778e-06,
+              "median": 0.005501891599344458,
+              "p90": 0.022131518100863203,
+              "max": 0.5672120061999957
+            },
+            "C_GT_proj": {
+              "n": 15532,
+              "min": -0.2766077755741257,
+              "median": 0.00015816624491457945,
+              "p90": 0.014065386019358191,
+              "max": 0.5596822260970629
+            },
+            "C_phi": {
+              "n": 10140,
+              "min": -13.456164479430862,
+              "median": 0.0,
+              "p90": 0.0,
+              "max": 13.456164479430862
+            },
+            "C_range": {
+              "n": 10140,
+              "min": -14.661480800924313,
+              "median": -0.5130002317346729,
+              "p90": 0.10081909993832597,
+              "max": 13.88996468917167
+            },
+            "C_mode_components_added": {
+              "n": 15532,
+              "min": 0.0,
+              "median": 0.0,
+              "p90": 0.0,
+              "max": 2.0
+            },
+            "C_conflict": {
+              "n": 15532,
+              "min": 6.939240182468609e-09,
+              "median": 0.0017256543070401642,
+              "p90": 0.021480938416651173,
+              "max": 1.5340899293225618
+            },
+            "C50": {
+              "n": 15532,
+              "min": -0.6379573544803505,
+              "median": 0.00034450200381297424,
+              "p90": 0.040159068217092406,
+              "max": 3.6204075886242144
+            },
+            "C_tail": {
+              "n": 15532,
+              "min": -1.4012691570543616,
+              "median": 0.0019795281284789856,
+              "p90": 0.07264780778425295,
+              "max": 4.889494887120536
+            }
+          },
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "科学",
+          "metric": "物理 GT 贡献",
+          "criterion": "C_GT_mm 需 mm_per_pixel 和 GT 不确定度",
+          "observed": {
+            "MISSING": 265,
+            "PIXEL_ONLY_NO_MM_PER_PIXEL": 15532
+          },
+          "decision": "NOT_MEASURABLE_FROM_CURRENT_ARTIFACT",
+          "note": ""
+        },
+        {
+          "layer": "科学",
+          "metric": "GT sign / ranking 外部效度",
+          "criterion": "需要 independent tree sign accuracy、precision@k/recall@k 与 scale/phase replay",
+          "observed": "未提供独立 ranking/scale-phase 评价",
+          "decision": "NOT_MEASURABLE_FROM_CURRENT_ARTIFACT",
+          "note": ""
+        },
+        {
+          "layer": "使用",
+          "metric": "无 GT 部署语义",
+          "criterion": "runtime 只能输出 HARMFUL_SUSPECT 等，不可把 HARMFUL_GT 作为删弧规则",
+          "observed": {
+            "exact_status": {
+              "EXACT": 15532,
+              "UNRESOLVED_SEARCH": 265
+            },
+            "roles": {
+              "BENEFICIAL_GT": 3801,
+              "DIRECTION_CRITICAL": 5634,
+              "HARMFUL_GT": 2121,
+              "HIGH_LEVERAGE": 1847,
+              "MODE_EXCLUSION": 129,
+              "RANGE_CRITICAL": 848,
+              "REDUNDANT": 4388,
+              "UNRESOLVED": 1372
+            }
+          },
+          "decision": "部分满足",
+          "note": "当前角色中含 GT 事后标签，只能用于审计与标注复核。"
+        }
+      ],
+      "three_layers": [
+        [
+          "数值有效性",
+          "PARTIAL_PASS",
+          "绝大多数 exact delete-refit 有重新搜索 certificate；未闭合的删除保持 unresolved。"
+        ],
+        [
+          "科学有效性",
+          "EXPLORATORY",
+          "多通道贡献可做事后审计，但缺 mm、独立 ranking 以及 scale/phase 稳定性。"
+        ],
+        [
+          "使用有效性",
+          "EXPLORATORY",
+          "不可将 HARMFUL_GT 直接转换为无 GT 自动删弧规则。"
+        ]
+      ],
+      "downstream": "Stage 7 只能将贡献作为保护/候选审计证据；任何 unresolved 或 critical group 都不能被 Safe-Prune 删除。"
+    },
+    {
+      "stage": 7,
+      "status": "EXPLORATORY",
+      "counts": {
+        "final": 5182,
+        "methods": {
+          "F-All": 5182
+        },
+        "safe_prune_applied": 0,
+        "oracle_available": 3621,
+        "oracle_improves": 3387,
+        "audit_groups": 15532,
+        "audit_reasons": {
+          "FULL_REPLAY_AND_INDEPENDENT_THRESHOLDS_UNAVAILABLE": 15532
+        }
+      },
+      "metrics": [
+        {
+          "layer": "数值",
+          "metric": "final/oracle 完整",
+          "criterion": "每个 manifest crop 有 final 与 oracle audit",
+          "observed": {
+            "final": "100.00% (5182/5182)",
+            "oracle": "100.00% (5182/5182)"
+          },
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "数值",
+          "metric": "final 坐标方法",
+          "criterion": "独立部署门未通过时 final_method 必须为 F-All 且 safe_prune_applied=false",
+          "observed": {
+            "methods": {
+              "F-All": 5182
+            },
+            "safe_prune_applied": 0
+          },
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "科学",
+          "metric": "Oracle 理论上限",
+          "criterion": "Oracle 可用于事后判断潜在单删收益，不可改 final 坐标",
+          "observed": {
+            "available": "69.88% (3621/5182)",
+            "improves": "65.36% (3387/5182)",
+            "changes_final": 0
+          },
+          "decision": "满足",
+          "note": ""
+        },
+        {
+          "layer": "科学",
+          "metric": "无 GT Safe 候选门",
+          "criterion": "候选需冻结词典序、critical protection、replay 和 delete certificate",
+          "observed": {
+            "audit_groups": 15532,
+            "harmful_suspect": 0,
+            "protected_critical": 6298,
+            "all_gates_pass": 0,
+            "reasons": {
+              "FULL_REPLAY_AND_INDEPENDENT_THRESHOLDS_UNAVAILABLE": 15532
+            }
+          },
+          "decision": "未达标",
+          "note": "独立阈值/replay 条件不可用，故不存在可部署候选。"
+        },
+        {
+          "layer": "使用",
+          "metric": "独立树冻结门",
+          "criterion": "n_freeze=max(30,n_power)；独立 validation trees 必须达到 n_freeze",
+          "observed": {
+            "independent_trees": 4,
+            "minimum_tree_floor": 30,
+            "n_power": null
+          },
+          "decision": "未达标",
+          "note": ""
+        },
+        {
+          "layer": "使用",
+          "metric": "Safe-Prune 部署结论",
+          "criterion": "主精度改善、tail/False-POINT 非劣、coverage、critical false removal 与 sealed validation 均需通过",
+          "observed": "上述 dataset-level evidence 未提供且树数不足",
+          "decision": "未达标",
+          "note": ""
+        }
+      ],
+      "three_layers": [
+        [
+          "数值有效性",
+          "PASS",
+          "final、oracle 和 audit 产物完整，最终坐标没有被 Safe 改写。"
+        ],
+        [
+          "科学有效性",
+          "EXPLORATORY",
+          "Oracle 显示潜在删弧收益，但无 GT Safe 识别器的独立效度尚未建立。"
+        ],
+        [
+          "使用有效性",
+          "PASS",
+          "Safe-Prune 正确保持 OFF，最终输出固定 F-All。"
+        ]
+      ],
+      "downstream": "当前可得的正确终结结论是：All-Arc 作为研究基线可保留；Safe-Prune 不具部署资格，必须继续 OFF。"
+    }
+  ]
+}

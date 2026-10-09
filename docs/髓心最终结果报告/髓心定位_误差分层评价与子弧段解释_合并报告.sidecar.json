@@ -1,0 +1,11 @@
+{
+  "schema_version": "racpith.final_report.v1",
+  "report_path": "/home/jzf/woodproject/树髓定位/代码/髓心最终所有结果/髓心定位_误差分层评价与子弧段解释_合并报告.md",
+  "report_sha256": "da1513e193131f5d9d7d4552b59bd11352a949670280b1e1985ccebfebbeab6b",
+  "inputs": {
+    "grouped_summary": "f333927de0bd17450cbad0d523e711f2128ee1eaf05477946a215cddfa2d8dcd",
+    "scale_summary": "957198afe23881db0f4e74dfec4892c8460fec5ec0265c160e69823f30177cba",
+    "explain_summary": "504aaa74c7be7d9a08f57fa919b9e819f171e6e1565a342d537ca4ccd1fb466a",
+    "smoke_comparison": "ac7e60056c976226927de66e025c0476131cb2484a32fde64a2d5f9cdd87e13f"
+  }
+}

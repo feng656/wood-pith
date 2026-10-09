@@ -1,0 +1,5 @@
+[console_scripts]
+oapith-calibrate = oapith.cli.calibrate:main
+oapith-consensus = oapith.cli.consensus:main
+oapith-infer = oapith.cli.infer:main
+oapith-train = oapith.cli.train:main

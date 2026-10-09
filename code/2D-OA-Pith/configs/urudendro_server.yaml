@@ -1,0 +1,79 @@
+# UruDendro 小数据全流程 — 服务器 GPU 版
+# 与本地 urudendro_small.yaml 同实验（120 样本 · 384 画布），改动：
+#   root 指服务器数据路径；batch 4 / workers 0 / amp true（GPU）；
+#   geometry 采用官方档预算（warmup 35 / stage 50 / em 3 / max_modes 6）；
+#   训练延长至 150 轮（base 设计值，状态头欠训练是拒识主因）。
+#   workers=0：数据加载在主进程完成。几何优化（单图 30-550s）才是耗时大头，
+#   多 worker 带来的数据加速可忽略，反而在服务器资源限制下触发
+#   multiprocessing/pin_memory 崩溃（ancdata、pin 线程）。pin_memory 已默认关闭。
+# 注意：inference.tile_size 必须等于 data.image_size；两个 switch_radius 必须相等。
+data:
+  manifest: data/manifest_small.jsonl
+  root: /home/jzf/woodproject/树髓定位
+  train_split: train
+  validation_split: validation
+  image_size: 384
+  batch_size: 4
+  workers: 0
+  mean: [0.5, 0.5, 0.5]
+  std: [0.25, 0.25, 0.25]
+  raster_truncation: 0.04
+  native_tile_probability: 0.5
+  native_scale_jitter: [0.8, 1.25]
+  augmentation:
+    max_rotation_radians: 3.141592653589793
+    min_scale: 0.35
+    max_scale: 3.0
+    max_translation: 0.45
+
+model:
+  base_channels: 32
+  embedding_dim: 8
+  defect_classes: 4
+  mixture_components: 4
+  near_extent: 2.5
+  detach_variance_features: true
+
+training:
+  epochs: 150
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  pith_weight: 1.0
+  equivariance_weight: 0.15
+  gradient_clip: 5.0
+  amp: true
+  switch_radius: 2.0
+  seed: 2026
+  checkpoint_every: 5
+
+geometry:
+  sample_spacing: 0.015
+  minimum_sigma: 0.002
+  student_df: 4.0
+  outlier_scale: 8.0
+  tangent_scale: 0.15
+  switch_radius: 2.0
+  near_max_radius: 4.0
+  far_allow_affine: false
+  maximum_harmonic: 5
+  nesting_margin: 0.002
+  warmup_steps: 35
+  stage_steps: 50
+  em_rounds: 3
+  max_modes: 6
+  mode_loss_window: 12.0
+  deduplication_distance: 0.08
+  deduplication_angle: 0.02
+  deduplication_inverse_distance: 0.02
+  stationarity_tolerance: 0.0001
+  disturbance_source_options: [0, 1]
+
+inference:
+  tile_size: 384
+  overlap: 96
+  tile_batch_size: 2
+  ring_threshold: 0.35
+  minimum_arc_pixels: 12
+  exact_arc_contribution: false
+
+output_directory: runs/oa_pith_server

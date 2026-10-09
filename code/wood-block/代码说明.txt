@@ -1,0 +1,55 @@
+cross_section_tree_ring_detection/ 目录（第三方算法库）
+---------------------------------------------------------
+cross_section_tree_ring_detection.py — CSTRD 主入口：完整年轮检测流水线
+chain.py — Chain 核心数据结构
+preprocessing.py — 图像预处理
+canny_devernay_edge_detector.py — 亚像素边缘检测
+filter_edges.py — 边缘方向过滤
+sampling.py — 边缘极坐标采样
+merge_chains.py — 链合并算法
+postprocessing.py — 后处理（链分裂/合并/闭合）
+basic_properties.py — 相似性条件判断
+interpolation_nodes.py — 节点插值
+utils.py — 工具函数（保存结果、JSON转换）
+drawing.py — 可视化绘图
+io.py — 文件读写
+
+数据集生成与标注
+---------------------------------------------------------
+generate_patch_dataset.py — 从 UruDendro4 随机裁剪多个尺寸（400-1200px）的矩形 patch，生成带标注的训练/测试数据
+backfill_patch_annotations.py — 为已裁剪的 patch 批量补上 JSON 标注文件（局部年轮坐标、髓心坐标、偏移量等元数据）
+collect_pith_coords.py — 汇总所有 patch 的髓心新坐标（全局→局部坐标转换：cx_new = cx_global - bx）
+write_per_patch_pith.py — 为每个 patch 单独生成 {patch_name}_新髓心.json 髓心坐标文件
+
+立方体相关
+---------------------------------------------------------
+cube_unfold.py — 木块立方体展开图生成：将 A/B/C/D/E/F 六个面展开成十字排列
+check_edge_alignment.py — 边缘衔接检查 v1：检查立方体各面年轮线条在边缘处的衔接质量
+check_edge_alignment_v2.py — 边缘衔接检查 v2：基于标注线（非像素）+中文字体，改进版
+
+单图测试与拼接
+---------------------------------------------------------
+quick_test.py — 快速测试单张图片的 DeepCSTRD 年轮检测（含 SSL/Shapely 兼容性修复）
+stitch_B_final.py — B面年轮盘拼接：以髓心为锚点对齐拼接多块 patch 成完整年轮盘，边缘匹配验证
+
+数据集转换与拼装
+---------------------------------------------------------
+convert_dataset.py — 将 patch JSON 标注转为 gpt_ring_recon_v5.py 需要的 B_ann.png/D_ann.png 灰度 PNG 格式
+convert_from_original.py — 从原始 LabelMe 全图标注直接渲染后裁剪，替代 convert_dataset.py（消除环编号重新索引问题）
+regenerate_all_in_one.py — 一次性重建：网格 patch + 拼接 + 叠加 + 对比（确保与原始标注 100% 一致）
+stitch_ann_patches.py — 将 patch 的 B_ann.png/D_ann.png 拼回完整原图大小
+overlay_ann_originals.py — 将拼接后的标注图与原图叠加（彩色显示不同环号）
+compare_annotations.py — 三栏对比：原始标注 vs 重建标注 vs 差异图
+create_train_txt.py — 生成训练集 train_pith.txt：灰度图路径 + 髓心坐标
+fix_grid_positions.py — 为网格 patch 重建位置 JSON（已过时，被 regenerate_all_in_one.py 取代）
+
+髓心定位方法评测
+---------------------------------------------------------
+compare_pith_methods.py ⭐⭐⭐ — 方法A/B/C全量对比评测：独立圆拟合(A)、线性同心回归(B)、非线性梯度下降(C)，输出 comparison_all.csv
+hybrid_pith.py ⭐⭐ — H1/H2/H3混合策略：置信度阈值切换、加权平均、块内选A，输出 hybrid_summary.csv
+final_pith_eval.py ⭐⭐ — H4最优混合：A和B一致(<150-300px)用A(精确)，否则用B(稳健)，输出 每块最优估计.csv
+eval_pith_methods.py — 早期版全量评测（eval_all.csv），是 compare_pith_methods.py 的前身
+
+Teacher Code（老师的代码，生长场重建）
+---------------------------------------------------------
+gpt_ring_recon_v5.py — RBF+优化重建连续年轮生长场，需 CUDA GPU，输入 B_ann.png/D_ann.png，输出 growth_field + metrics

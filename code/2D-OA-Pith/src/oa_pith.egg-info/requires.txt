@@ -1,0 +1,13 @@
+torch>=2.4
+numpy>=1.26
+Pillow>=10
+scipy>=1.11
+PyYAML>=6
+
+[dev]
+pytest>=8
+ruff>=0.6
+mypy>=1.11
+
+[equivariant]
+escnn>=1.0.11

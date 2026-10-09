@@ -1,0 +1,50 @@
+{
+  "schema_version": "racpith.explain_vs_measured.v1",
+  "n_crops": 3,
+  "n_matched_subarcs": 228,
+  "by_category": {
+    "BOUNDARY_TRUNCATED": {
+      "n": 45,
+      "contrib_gt_px": {
+        "median": -0.5331276966520105,
+        "p90_abs": 2.7581404186806577,
+        "frac_abs_lt_1px": 0.5555555555555556
+      },
+      "sign_consistency_rate": 0.5555555555555556
+    },
+    "MODERATE": {
+      "n": 1,
+      "contrib_gt_px": {
+        "median": 0.020637012387181356,
+        "p90_abs": 0.020637012387181356,
+        "frac_abs_lt_1px": 1.0
+      },
+      "sign_consistency_rate": null
+    },
+    "SUPPORTING": {
+      "n": 105,
+      "contrib_gt_px": {
+        "median": -0.13994186556066418,
+        "p90_abs": 1.4052100617431083,
+        "frac_abs_lt_1px": 0.8380952380952381
+      },
+      "sign_consistency_rate": 0.3047619047619048
+    },
+    "SUPPORTING_SHORT": {
+      "n": 77,
+      "contrib_gt_px": {
+        "median": 0.18392184327852695,
+        "p90_abs": 1.1413031373508766,
+        "frac_abs_lt_1px": 0.8831168831168831
+      },
+      "sign_consistency_rate": 0.7272727272727273
+    }
+  },
+  "boundaries": [
+    "subarc-scale delete-refit deltas are tiny; sign consistency is directional only",
+    "geometry is diagnostics; it does not replace measured contributions"
+  ],
+  "input_hashes": {
+    "explain_records": "91040bd6c403c3b9152501c4b15a07a3cf97c220d0af7da0e7a5b52d69943482"
+  }
+}

@@ -1,0 +1,543 @@
+{
+  "manifest": "D:\\教务处实习\\wood_preproject\\树髓定位\\代码\\OC_ArcPith_RG_72h_algorithm_package_adjusted 2\\OC_ArcPith_RG_72h_algorithm_package_adjusted\\data\\manifest_grayscale.jsonl",
+  "denominator": 5182,
+  "trees": [
+    "T0",
+    "T2",
+    "T4",
+    "T6"
+  ],
+  "sections": 102,
+  "stage_summaries": {
+    "0": {
+      "denominator": 5182,
+      "records": 5182,
+      "missing_records": 0,
+      "status_counts": {
+        "PASS_WITH_RISK": 5182
+      },
+      "reason_counts": {
+        "PIXEL_ONLY_NO_MM_PER_PIXEL": 5182,
+        "TARGET_ALIGNMENT_UNKNOWN": 5182
+      },
+      "tree_aggregation": {
+        "T0": {
+          "records": 1346,
+          "status_counts": {
+            "PASS_WITH_RISK": 1346
+          },
+          "reason_counts": {
+            "PIXEL_ONLY_NO_MM_PER_PIXEL": 1346,
+            "TARGET_ALIGNMENT_UNKNOWN": 1346
+          }
+        },
+        "T2": {
+          "records": 859,
+          "status_counts": {
+            "PASS_WITH_RISK": 859
+          },
+          "reason_counts": {
+            "PIXEL_ONLY_NO_MM_PER_PIXEL": 859,
+            "TARGET_ALIGNMENT_UNKNOWN": 859
+          }
+        },
+        "T4": {
+          "records": 1235,
+          "status_counts": {
+            "PASS_WITH_RISK": 1235
+          },
+          "reason_counts": {
+            "PIXEL_ONLY_NO_MM_PER_PIXEL": 1235,
+            "TARGET_ALIGNMENT_UNKNOWN": 1235
+          }
+        },
+        "T6": {
+          "records": 1742,
+          "status_counts": {
+            "PASS_WITH_RISK": 1742
+          },
+          "reason_counts": {
+            "PIXEL_ONLY_NO_MM_PER_PIXEL": 1742,
+            "TARGET_ALIGNMENT_UNKNOWN": 1742
+          }
+        }
+      },
+      "target_domain_counts": {
+        "TARGET_UNKNOWN": 5182
+      },
+      "stage": 0,
+      "validator": "validate_stagewise_results.py",
+      "load_errors": {},
+      "duplicate_keys": {}
+    },
+    "1": {
+      "denominator": 5182,
+      "records": 5182,
+      "missing_records": 0,
+      "status_counts": {
+        "EXPLORATORY": 5182
+      },
+      "reason_counts": {
+        "NO_OVERLAY_VALIDATION": 5182,
+        "NO_SMOOTHING_SWEEP_REPLAY": 5182,
+        "UNCERTAINTY_FALLBACK_ONLY": 5182
+      },
+      "tree_aggregation": {
+        "T0": {
+          "records": 1346,
+          "status_counts": {
+            "EXPLORATORY": 1346
+          },
+          "reason_counts": {
+            "NO_OVERLAY_VALIDATION": 1346,
+            "NO_SMOOTHING_SWEEP_REPLAY": 1346,
+            "UNCERTAINTY_FALLBACK_ONLY": 1346
+          }
+        },
+        "T2": {
+          "records": 859,
+          "status_counts": {
+            "EXPLORATORY": 859
+          },
+          "reason_counts": {
+            "NO_OVERLAY_VALIDATION": 859,
+            "NO_SMOOTHING_SWEEP_REPLAY": 859,
+            "UNCERTAINTY_FALLBACK_ONLY": 859
+          }
+        },
+        "T4": {
+          "records": 1235,
+          "status_counts": {
+            "EXPLORATORY": 1235
+          },
+          "reason_counts": {
+            "NO_OVERLAY_VALIDATION": 1235,
+            "NO_SMOOTHING_SWEEP_REPLAY": 1235,
+            "UNCERTAINTY_FALLBACK_ONLY": 1235
+          }
+        },
+        "T6": {
+          "records": 1742,
+          "status_counts": {
+            "EXPLORATORY": 1742
+          },
+          "reason_counts": {
+            "NO_OVERLAY_VALIDATION": 1742,
+            "NO_SMOOTHING_SWEEP_REPLAY": 1742,
+            "UNCERTAINTY_FALLBACK_ONLY": 1742
+          }
+        }
+      },
+      "target_domain_counts": {},
+      "stage": 1,
+      "validator": "validate_stagewise_results.py",
+      "load_errors": {},
+      "duplicate_keys": {}
+    },
+    "2": {
+      "denominator": 5182,
+      "records": 5182,
+      "missing_records": 0,
+      "status_counts": {
+        "EXPLORATORY": 5182
+      },
+      "reason_counts": {
+        "NO_ABLATION_RUNTIME_RECORD": 5182,
+        "NO_COARSE_LOSS_MAP": 5182,
+        "NO_REFERENCE_BASIN_MATCHING": 5182
+      },
+      "tree_aggregation": {
+        "T0": {
+          "records": 1346,
+          "status_counts": {
+            "EXPLORATORY": 1346
+          },
+          "reason_counts": {
+            "NO_ABLATION_RUNTIME_RECORD": 1346,
+            "NO_COARSE_LOSS_MAP": 1346,
+            "NO_REFERENCE_BASIN_MATCHING": 1346
+          }
+        },
+        "T2": {
+          "records": 859,
+          "status_counts": {
+            "EXPLORATORY": 859
+          },
+          "reason_counts": {
+            "NO_ABLATION_RUNTIME_RECORD": 859,
+            "NO_COARSE_LOSS_MAP": 859,
+            "NO_REFERENCE_BASIN_MATCHING": 859
+          }
+        },
+        "T4": {
+          "records": 1235,
+          "status_counts": {
+            "EXPLORATORY": 1235
+          },
+          "reason_counts": {
+            "NO_ABLATION_RUNTIME_RECORD": 1235,
+            "NO_COARSE_LOSS_MAP": 1235,
+            "NO_REFERENCE_BASIN_MATCHING": 1235
+          }
+        },
+        "T6": {
+          "records": 1742,
+          "status_counts": {
+            "EXPLORATORY": 1742
+          },
+          "reason_counts": {
+            "NO_ABLATION_RUNTIME_RECORD": 1742,
+            "NO_COARSE_LOSS_MAP": 1742,
+            "NO_REFERENCE_BASIN_MATCHING": 1742
+          }
+        }
+      },
+      "target_domain_counts": {},
+      "stage": 2,
+      "validator": "validate_stagewise_results.py",
+      "load_errors": {},
+      "duplicate_keys": {}
+    },
+    "3": {
+      "denominator": 5182,
+      "records": 5182,
+      "missing_records": 0,
+      "status_counts": {
+        "EXPLORATORY": 4591,
+        "FAIL": 591
+      },
+      "reason_counts": {
+        "NO_FULL_SEED_OPTIMIZATION_TRACE": 5182,
+        "NO_INDEPENDENT_REFERENCE_BASIN_RECALL": 5182,
+        "SEARCH_INADEQUATE": 585,
+        "MODEL_CONFLICT": 12
+      },
+      "tree_aggregation": {
+        "T0": {
+          "records": 1346,
+          "status_counts": {
+            "EXPLORATORY": 1221,
+            "FAIL": 125
+          },
+          "reason_counts": {
+            "NO_FULL_SEED_OPTIMIZATION_TRACE": 1346,
+            "NO_INDEPENDENT_REFERENCE_BASIN_RECALL": 1346,
+            "SEARCH_INADEQUATE": 125
+          }
+        },
+        "T2": {
+          "records": 859,
+          "status_counts": {
+            "EXPLORATORY": 780,
+            "FAIL": 79
+          },
+          "reason_counts": {
+            "NO_FULL_SEED_OPTIMIZATION_TRACE": 859,
+            "NO_INDEPENDENT_REFERENCE_BASIN_RECALL": 859,
+            "SEARCH_INADEQUATE": 78,
+            "MODEL_CONFLICT": 3
+          }
+        },
+        "T4": {
+          "records": 1235,
+          "status_counts": {
+            "FAIL": 95,
+            "EXPLORATORY": 1140
+          },
+          "reason_counts": {
+            "NO_FULL_SEED_OPTIMIZATION_TRACE": 1235,
+            "NO_INDEPENDENT_REFERENCE_BASIN_RECALL": 1235,
+            "SEARCH_INADEQUATE": 95,
+            "MODEL_CONFLICT": 1
+          }
+        },
+        "T6": {
+          "records": 1742,
+          "status_counts": {
+            "EXPLORATORY": 1450,
+            "FAIL": 292
+          },
+          "reason_counts": {
+            "NO_FULL_SEED_OPTIMIZATION_TRACE": 1742,
+            "NO_INDEPENDENT_REFERENCE_BASIN_RECALL": 1742,
+            "SEARCH_INADEQUATE": 287,
+            "MODEL_CONFLICT": 8
+          }
+        }
+      },
+      "target_domain_counts": {},
+      "stage": 3,
+      "validator": "validate_stagewise_results.py",
+      "load_errors": {},
+      "duplicate_keys": {}
+    },
+    "4": {
+      "denominator": 5182,
+      "records": 5182,
+      "missing_records": 0,
+      "status_counts": {
+        "EXPLORATORY": 4597,
+        "NOT_APPLICABLE": 585
+      },
+      "reason_counts": {
+        "NO_INDEPENDENT_CALIBRATION": 4597,
+        "POINT_CANDIDATE_IS_NOT_FORMAL_POINT": 4597,
+        "UNCALIBRATED_SUPPORT": 4597,
+        "UPSTREAM_SEARCH_INADEQUATE_OR_REJECT": 585,
+        "NUMERICAL_UNSTABLE": 302
+      },
+      "tree_aggregation": {
+        "T0": {
+          "records": 1346,
+          "status_counts": {
+            "EXPLORATORY": 1221,
+            "NOT_APPLICABLE": 125
+          },
+          "reason_counts": {
+            "NO_INDEPENDENT_CALIBRATION": 1221,
+            "POINT_CANDIDATE_IS_NOT_FORMAL_POINT": 1221,
+            "UNCALIBRATED_SUPPORT": 1221,
+            "UPSTREAM_SEARCH_INADEQUATE_OR_REJECT": 125,
+            "NUMERICAL_UNSTABLE": 25
+          }
+        },
+        "T2": {
+          "records": 859,
+          "status_counts": {
+            "EXPLORATORY": 781,
+            "NOT_APPLICABLE": 78
+          },
+          "reason_counts": {
+            "NO_INDEPENDENT_CALIBRATION": 781,
+            "POINT_CANDIDATE_IS_NOT_FORMAL_POINT": 781,
+            "UNCALIBRATED_SUPPORT": 781,
+            "UPSTREAM_SEARCH_INADEQUATE_OR_REJECT": 78,
+            "NUMERICAL_UNSTABLE": 26
+          }
+        },
+        "T4": {
+          "records": 1235,
+          "status_counts": {
+            "NOT_APPLICABLE": 95,
+            "EXPLORATORY": 1140
+          },
+          "reason_counts": {
+            "UPSTREAM_SEARCH_INADEQUATE_OR_REJECT": 95,
+            "NO_INDEPENDENT_CALIBRATION": 1140,
+            "POINT_CANDIDATE_IS_NOT_FORMAL_POINT": 1140,
+            "UNCALIBRATED_SUPPORT": 1140,
+            "NUMERICAL_UNSTABLE": 23
+          }
+        },
+        "T6": {
+          "records": 1742,
+          "status_counts": {
+            "EXPLORATORY": 1455,
+            "NOT_APPLICABLE": 287
+          },
+          "reason_counts": {
+            "NO_INDEPENDENT_CALIBRATION": 1455,
+            "POINT_CANDIDATE_IS_NOT_FORMAL_POINT": 1455,
+            "UNCALIBRATED_SUPPORT": 1455,
+            "UPSTREAM_SEARCH_INADEQUATE_OR_REJECT": 287,
+            "NUMERICAL_UNSTABLE": 228
+          }
+        }
+      },
+      "target_domain_counts": {},
+      "stage": 4,
+      "validator": "validate_stagewise_results.py",
+      "load_errors": {},
+      "duplicate_keys": {}
+    },
+    "5": {
+      "denominator": 5182,
+      "records": 5182,
+      "missing_records": 0,
+      "status_counts": {
+        "PASS_WITH_RISK": 5182
+      },
+      "reason_counts": {
+        "MM_SCALE_UNAVAILABLE": 5182,
+        "NO_FULL_DELETE_SCATTER_REPLAY_CALIBRATION": 5182,
+        "TARGET_ALIGNMENT_UNKNOWN": 5182
+      },
+      "tree_aggregation": {
+        "T0": {
+          "records": 1346,
+          "status_counts": {
+            "PASS_WITH_RISK": 1346
+          },
+          "reason_counts": {
+            "MM_SCALE_UNAVAILABLE": 1346,
+            "NO_FULL_DELETE_SCATTER_REPLAY_CALIBRATION": 1346,
+            "TARGET_ALIGNMENT_UNKNOWN": 1346
+          }
+        },
+        "T2": {
+          "records": 859,
+          "status_counts": {
+            "PASS_WITH_RISK": 859
+          },
+          "reason_counts": {
+            "MM_SCALE_UNAVAILABLE": 859,
+            "NO_FULL_DELETE_SCATTER_REPLAY_CALIBRATION": 859,
+            "TARGET_ALIGNMENT_UNKNOWN": 859
+          }
+        },
+        "T4": {
+          "records": 1235,
+          "status_counts": {
+            "PASS_WITH_RISK": 1235
+          },
+          "reason_counts": {
+            "MM_SCALE_UNAVAILABLE": 1235,
+            "NO_FULL_DELETE_SCATTER_REPLAY_CALIBRATION": 1235,
+            "TARGET_ALIGNMENT_UNKNOWN": 1235
+          }
+        },
+        "T6": {
+          "records": 1742,
+          "status_counts": {
+            "PASS_WITH_RISK": 1742
+          },
+          "reason_counts": {
+            "MM_SCALE_UNAVAILABLE": 1742,
+            "NO_FULL_DELETE_SCATTER_REPLAY_CALIBRATION": 1742,
+            "TARGET_ALIGNMENT_UNKNOWN": 1742
+          }
+        }
+      },
+      "target_domain_counts": {},
+      "stage": 5,
+      "validator": "validate_stagewise_results.py",
+      "load_errors": {},
+      "duplicate_keys": {}
+    },
+    "6": {
+      "denominator": 5182,
+      "records": 5182,
+      "missing_records": 0,
+      "status_counts": {
+        "EXPLORATORY": 5182
+      },
+      "reason_counts": {
+        "GT_ROLES_ARE_POSTHOC_AUDIT_ONLY": 5182,
+        "NO_PHYSICAL_MM_CONTRIBUTION": 5182
+      },
+      "tree_aggregation": {
+        "T0": {
+          "records": 1346,
+          "status_counts": {
+            "EXPLORATORY": 1346
+          },
+          "reason_counts": {
+            "GT_ROLES_ARE_POSTHOC_AUDIT_ONLY": 1346,
+            "NO_PHYSICAL_MM_CONTRIBUTION": 1346
+          }
+        },
+        "T2": {
+          "records": 859,
+          "status_counts": {
+            "EXPLORATORY": 859
+          },
+          "reason_counts": {
+            "GT_ROLES_ARE_POSTHOC_AUDIT_ONLY": 859,
+            "NO_PHYSICAL_MM_CONTRIBUTION": 859
+          }
+        },
+        "T4": {
+          "records": 1235,
+          "status_counts": {
+            "EXPLORATORY": 1235
+          },
+          "reason_counts": {
+            "GT_ROLES_ARE_POSTHOC_AUDIT_ONLY": 1235,
+            "NO_PHYSICAL_MM_CONTRIBUTION": 1235
+          }
+        },
+        "T6": {
+          "records": 1742,
+          "status_counts": {
+            "EXPLORATORY": 1742
+          },
+          "reason_counts": {
+            "GT_ROLES_ARE_POSTHOC_AUDIT_ONLY": 1742,
+            "NO_PHYSICAL_MM_CONTRIBUTION": 1742
+          }
+        }
+      },
+      "target_domain_counts": {},
+      "stage": 6,
+      "validator": "validate_stagewise_results.py",
+      "load_errors": {},
+      "duplicate_keys": {}
+    },
+    "7": {
+      "denominator": 5182,
+      "records": 5182,
+      "missing_records": 0,
+      "status_counts": {
+        "EXPLORATORY": 5182
+      },
+      "reason_counts": {
+        "DEPLOYMENT_GATE_NOT_PASSED": 5182,
+        "INDEPENDENT_TREE_COUNT_BELOW_FREEZE_GATE": 5182,
+        "SAFE_PRUNE_OFF": 5182
+      },
+      "tree_aggregation": {
+        "T0": {
+          "records": 1346,
+          "status_counts": {
+            "EXPLORATORY": 1346
+          },
+          "reason_counts": {
+            "DEPLOYMENT_GATE_NOT_PASSED": 1346,
+            "INDEPENDENT_TREE_COUNT_BELOW_FREEZE_GATE": 1346,
+            "SAFE_PRUNE_OFF": 1346
+          }
+        },
+        "T2": {
+          "records": 859,
+          "status_counts": {
+            "EXPLORATORY": 859
+          },
+          "reason_counts": {
+            "DEPLOYMENT_GATE_NOT_PASSED": 859,
+            "INDEPENDENT_TREE_COUNT_BELOW_FREEZE_GATE": 859,
+            "SAFE_PRUNE_OFF": 859
+          }
+        },
+        "T4": {
+          "records": 1235,
+          "status_counts": {
+            "EXPLORATORY": 1235
+          },
+          "reason_counts": {
+            "DEPLOYMENT_GATE_NOT_PASSED": 1235,
+            "INDEPENDENT_TREE_COUNT_BELOW_FREEZE_GATE": 1235,
+            "SAFE_PRUNE_OFF": 1235
+          }
+        },
+        "T6": {
+          "records": 1742,
+          "status_counts": {
+            "EXPLORATORY": 1742
+          },
+          "reason_counts": {
+            "DEPLOYMENT_GATE_NOT_PASSED": 1742,
+            "INDEPENDENT_TREE_COUNT_BELOW_FREEZE_GATE": 1742,
+            "SAFE_PRUNE_OFF": 1742
+          }
+        }
+      },
+      "target_domain_counts": {},
+      "stage": 7,
+      "validator": "validate_stagewise_results.py",
+      "load_errors": {},
+      "duplicate_keys": {}
+    }
+  },
+  "safe_prune": "OFF",
+  "conclusion": "Geometry pipeline is executable, but the current results are exploratory/pass-with-risk: four biological trees, unknown target alignment, no mm_per_pixel, and no independent Safe-Prune calibration prevent a formal calibrated PASS or X5 claim."
+}

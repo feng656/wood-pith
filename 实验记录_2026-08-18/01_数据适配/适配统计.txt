@@ -1,0 +1,12 @@
+各组样本数: {'T0': 703, 'T2': 451, 'T4': 444, 'T6': 455}
+split 分布: {'train': 1598, 'validation': 455}
+跳过原因: {'no_valid_curves': 2371}
+pith_state 分布 (0=near,1=far): {1: 1139, 0: 914}
+髓心在图内: 424/2053
+每样本曲线数: min=2 max=22
+冒烟子集: 36 样本 · 组 {'T0': 'train', 'T2': 'train', 'T6': 'validation'}
+load_manifest 校验通过：36 条（schema + 组级 split 检查）✓
+全量 manifest 校验通过：2053 条 ✓
+
+输出: D:\教务处实习\wood_preproject\树髓定位\2D-OA-Pith-python-script-experiments-final\pith2d\data\manifest.jsonl
+      D:\教务处实习\wood_preproject\树髓定位\2D-OA-Pith-python-script-experiments-final\pith2d\data\manifest_smoke.jsonl

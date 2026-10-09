@@ -1,0 +1,39 @@
+===== 服务器运行指南（2026-08-18）=====
+
+【上传什么】
+把整个 pith2d 项目目录传到服务器（含我们新增的 scripts/10-14、configs/urudendro_*.yaml、
+data/manifest*.jsonl 与已修复的 src/oapith/inference/posterior.py）。建议目标位置：
+  /home/jzf/woodproject/树髓定位/2D-OA-Pith-python-script-experiments-final/pith2d
+
+不需要上传：
+  - 裁剪矩形数据（服务器已有：/home/jzf/woodproject/树髓定位/裁剪矩形）
+  - runs/ 目录（本地结果；服务器会生成 runs/oa_pith_server）
+
+【服务器准备】
+  cd /home/jzf/woodproject/树髓定位/2D-OA-Pith-python-script-experiments-final/pith2d
+  conda activate py311
+  pip install -e ".[dev]"        # torch>=2.4 已满足；若 numpy/scipy/PyYAML/Pillow 缺失会自动装
+  python -c "import oapith; print('ok')"   # 自检
+
+【一键运行（训练→评估→汇总）】
+  OA_PITH_DEVICE=cuda:1 python scripts/14_server_run.py 2>&1 | tee runs/server_run.log
+
+  2026-08-19 更新：训练已延长到 150 轮（configs/urudendro_server.yaml 的
+  training.epochs=150）；workers 4→8 掩盖数据准备延迟（软栅格化 1.5s/样本是
+  CPU 热点，实测 warp 缓存方案因亚像素软标签不可二次重采样而被否决）。
+  预计 150 轮约 4-5 小时。结束后自动对 24 张 val 逐张推理（官方档几何预算，
+  每张约 30-60 秒）并输出：
+    runs/oa_pith_server/eval/eval_results.csv
+    runs/oa_pith_server/eval/eval_summary.json
+    runs/oa_pith_server/eval/*_overlay.png（5 张）
+
+【可选调整（改 configs/urudendro_server.yaml）】
+  - 全量数据：data.manifest 改为 data/manifest.jsonl（2053 样本，组级 split 已就绪）
+  - 断点续跑：14_server_run.py 顶部 RESUME_CHECKPOINT 填 runs/oa_pith_server/best.pt
+
+【本次已修复的问题（相对本地小数据运行）】
+  1. 后验构造空张量崩溃（15/24 张）：单环近场模型产生 0 元素参数，
+     _scaled_stationarity 对其调 .max() → 已在 posterior.py 加 numel()>0 保护
+  2. 几何迭代预算不足（9/24 张不收敛）：medium 档（10/20/2）→ 官方档（35/50/3）
+  3. 评估脚本路径硬编码 Windows：13_eval_small.py 现从配置 yaml 读取 data.root，
+     支持 OA_PITH_EVAL_CONFIG / OA_PITH_EVAL_CHECKPOINT 环境变量覆盖

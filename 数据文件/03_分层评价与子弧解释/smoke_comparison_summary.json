@@ -1,0 +1,59 @@
+{
+  "schema_version": "racpith.explain_vs_measured.v1",
+  "n_crops": 1,
+  "n_matched_subarcs": 190,
+  "by_category": {
+    "BOUNDARY_TRUNCATED": {
+      "n": 31,
+      "contrib_gt_px": {
+        "median": -0.022421730161269686,
+        "p90_abs": 0.27340844677547205,
+        "frac_abs_lt_1px": 1.0
+      },
+      "sign_consistency_rate": 1.0
+    },
+    "DEVIATING": {
+      "n": 9,
+      "contrib_gt_px": {
+        "median": 0.04375218251981903,
+        "p90_abs": 0.13535868859552,
+        "frac_abs_lt_1px": 1.0
+      },
+      "sign_consistency_rate": 0.2222222222222222
+    },
+    "MODERATE": {
+      "n": 14,
+      "contrib_gt_px": {
+        "median": 0.012756699849123414,
+        "p90_abs": 0.4512904410511316,
+        "frac_abs_lt_1px": 0.9285714285714286
+      },
+      "sign_consistency_rate": null
+    },
+    "SUPPORTING": {
+      "n": 81,
+      "contrib_gt_px": {
+        "median": -0.022571500766536336,
+        "p90_abs": 0.5125660437491856,
+        "frac_abs_lt_1px": 0.9629629629629629
+      },
+      "sign_consistency_rate": 0.43209876543209874
+    },
+    "SUPPORTING_SHORT": {
+      "n": 55,
+      "contrib_gt_px": {
+        "median": -0.007696049549101617,
+        "p90_abs": 0.16788555157807536,
+        "frac_abs_lt_1px": 1.0
+      },
+      "sign_consistency_rate": 0.12727272727272726
+    }
+  },
+  "boundaries": [
+    "subarc-scale delete-refit deltas are tiny; sign consistency is directional only",
+    "geometry is diagnostics; it does not replace measured contributions"
+  ],
+  "input_hashes": {
+    "explain_records": "f4f4d679d68a53f6e1ebbb11f091df5aa849ed56717469430b16f01e21b36a86"
+  }
+}

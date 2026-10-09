@@ -1,0 +1,18 @@
+{
+  "schema_version": "racpith.subarc_explain_config.v1",
+  "subarc_fraction": 0.1,
+  "phase": 0.0,
+  "boundary_margin_px": 5.0,
+  "agreement_thresholds": {
+    "supporting": 0.9,
+    "deviating": 0.7
+  },
+  "final_center_source": "stage7 final_results pith_px (F-All)",
+  "ring_role_source": "stage6 parent_exact_contributions roles",
+  "boundaries": [
+    "geometric diagnostics only; does not override gt_label/contrib_gt_norm",
+    "HARMFUL_GT is post-hoc audit, not a deployment delete-arc rule",
+    "pointing agreement uses the FINAL estimated center (consensus direction)"
+  ],
+  "config_sha256": "d2fcdde42d929d9bfd60feca97dc1667d48e67959aa57e9a29836b589b87f9ff"
+}

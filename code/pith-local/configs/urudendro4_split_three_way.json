@@ -1,0 +1,16 @@
+{
+  "schema_version": "racpith.split.v1",
+  "image_dir": "images_no_background",
+  "annotation_dir": "annotations/annual_rings",
+  "pith_file": "pith_location.txt",
+  "splits": {
+    "development": 0.6666666667,
+    "calibration": 0.1666666667,
+    "sealed_test": 0.1666666666
+  },
+  "group_key": "tree_id",
+  "stratify_keys": ["treatment", "block"],
+  "search_trials": 20000,
+  "random_seed": 20260906,
+  "warning": "Only 24 independent trees: four-tree calibration and test subsets have limited power."
+}

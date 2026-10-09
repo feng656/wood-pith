@@ -1,0 +1,23 @@
+{
+  "schema_version": "racpith.position_eval_config.v1",
+  "grouping": {
+    "in_image": "pith inside crop rectangle",
+    "near_ratio": 0.35,
+    "mid_ratio": 0.7,
+    "distance": "crop center to pith, normalized by frozen R_F of the parent section"
+  },
+  "metrics": {
+    "error_px": "euclidean prediction-GT distance in crop px",
+    "E_RF_pct": "100 * error_px / R_F_px (frozen full-parent-section scale)",
+    "E_w": "error_px / w_ref_px (frozen representative adjacent ring spacing)",
+    "E_wmax": "error_px / w_max_px (frozen p90 adjacent ring spacing)",
+    "E_mm": "empty; mm_per_pixel absent dataset-wide; never guessed"
+  },
+  "boundaries": [
+    "parent-section scale enters the evaluator only, never local inference",
+    "E_RF_pct is not interchangeable with APD E_APD_box_pct",
+    "E_w is a position-error/structure-scale ratio, not a tree-age error",
+    "all denominators are frozen before evaluation"
+  ],
+  "config_sha256": "911b432bb535a1090848468bf465f59f6772e452bfcef7557c3cbd05468f6208"
+}

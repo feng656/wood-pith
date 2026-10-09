@@ -1,0 +1,57 @@
+{
+  "records": 32,
+  "trees": 4,
+  "tree_metrics": {
+    "T0": {
+      "records": 8,
+      "b2_vs_b0_distance_median": -1.2905849679675603,
+      "b2_vs_b0_wins": 8,
+      "b2_vs_b1_distance_median": 0.0,
+      "b2_vs_b1_wins": 2,
+      "b2_vs_b3_distance_median": 0.009263883112546686,
+      "b2_vs_b3_wins": 3,
+      "b2_minus_b3_loss_median": 0.6996810055138543
+    },
+    "T2": {
+      "records": 8,
+      "b2_vs_b0_distance_median": -0.6641935504270786,
+      "b2_vs_b0_wins": 8,
+      "b2_vs_b1_distance_median": 0.0,
+      "b2_vs_b1_wins": 3,
+      "b2_vs_b3_distance_median": 0.027926404235137786,
+      "b2_vs_b3_wins": 0,
+      "b2_minus_b3_loss_median": 2.9857258870171606
+    },
+    "T4": {
+      "records": 8,
+      "b2_vs_b0_distance_median": -1.0743895804579808,
+      "b2_vs_b0_wins": 8,
+      "b2_vs_b1_distance_median": 0.0,
+      "b2_vs_b1_wins": 3,
+      "b2_vs_b3_distance_median": 0.03158197901043011,
+      "b2_vs_b3_wins": 0,
+      "b2_minus_b3_loss_median": 5.6517163249634805
+    },
+    "T6": {
+      "records": 8,
+      "b2_vs_b0_distance_median": -0.9750671909265579,
+      "b2_vs_b0_wins": 8,
+      "b2_vs_b1_distance_median": 0.0,
+      "b2_vs_b1_wins": 1,
+      "b2_vs_b3_distance_median": 0.00973004599807982,
+      "b2_vs_b3_wins": 1,
+      "b2_minus_b3_loss_median": 0.31506578442448774
+    }
+  },
+  "b2_loss_minus_b0_loss": -62.91917747847096,
+  "b2_gt_distance_minus_b0_gt_distance": -0.9358705081773866,
+  "search_budget": {
+    "B1_phi_bins": 72,
+    "B1_kappa_bins": 40,
+    "B2_phi_bins": 72,
+    "B2_kappa_bins": 40,
+    "B3_phi_bins": 24,
+    "B3_kappa_bins": 12
+  },
+  "note": "B1/B2 share the rapid grid budget; B3 is a separate high-budget reference. Four trees remain exploratory and do not support E3 calibration."
+}

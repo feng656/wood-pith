@@ -1,0 +1,91 @@
+seed: 20260822
+paths:
+  manifest: data/manifest_grayscale.jsonl
+  results_dir: results_urudendro_no_background
+
+preprocess:
+  resample_spacing_px: 4.0
+  spline_smoothing_px: 0.8
+  micro_arc_points: 20
+  ring_budget_max: 1.0
+  ring_budget_tau_norm: 0.15
+  min_points_per_ring: 8
+
+model:
+  require_explicit_ring_order: true
+  student_t_nu: 4.0
+  sigma_abs: 0.08
+  m1_shape_sigma: 0.10
+  m1_order_sigma: 0.04
+  m1_lambda_shape: 0.30
+  m1_lambda_shape_grid: [0.10, 0.30, 0.60]
+  m1_lambda_order: 0.08
+  m1_axis_taper_kappa: 0.03
+  radial_profile_bins: 48
+  radial_profile_min_overlap_deg: 15.0
+  optimizer_maxiter: 300
+  random_starts: 12
+  ransac_trials: 32
+  ransac_keep: 6
+  mode_loss_delta: 0.5
+  mode_separation_norm: 0.08
+
+candidate_screen:
+  # 关键修正：用规范尺度，不再固定 10/30/60 px
+  translation_fractions: [0.01, 0.025, 0.05, 0.10]
+  direction_deg: [5.0, 15.0]
+  distance_scales: [0.5, 2.0]
+  random_candidates: 16
+  local_loss_tolerance: 0.02
+  global_truth_beats_min: 0.80
+  direction_tree_pass_fraction: 0.70
+  range_tree_pass_fraction: 0.60
+  local_bias_tree_pass_fraction: 0.70
+
+bias_audit:
+  radius_fraction: 0.15
+  coarse_grid: 21
+  gt_tolerance_fraction: 0.01
+  repair_min_bias_reduction: 0.20
+  repair_min_tree_fraction: 0.70
+
+profile:
+  phi_bins: 72
+  kappa_bins: 40
+  kappa_max: 50.0
+  support_delta: 0.75
+  point_phi_width_deg: 15.0
+  axis_phi_width_deg: 20.0
+  # Provisional rapid-validation rule; final RANGE threshold belongs to E3.
+  range_kappa_ratio: 2.0
+  range_phi_width_deg: 45.0
+
+preflight:
+  # Candidate-free defaults for rapid validation only; do not treat as
+  # calibrated production thresholds.
+  min_eligible_rings: 2
+  min_total_arc_norm: 0.05
+  min_angular_coverage: 0.20
+  min_lambda_min: 0.02
+  min_n_seg_equiv: 2
+
+evidence:
+  audit_fraction: 0.25
+  buffer_rings: 1
+  min_fit_rings: 2
+  min_audit_rings: 1
+
+contribution:
+  enabled: true
+  max_groups: 24
+  hessian_step: 0.0005
+  ridge: 1.0e-6
+
+cv:
+  # UruDendro4 only has four biological trees, so this is exploratory
+  # leave-one-tree-out CV and cannot satisfy a formal 5-fold claim.
+  folds: 4
+  finite_true_distance_max_norm: 2.5
+  min_median_point_improvement_norm: 0.02
+  min_improved_folds: 4
+  max_far_axis_degradation_deg: 2.0

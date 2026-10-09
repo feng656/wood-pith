@@ -1,0 +1,15 @@
+﻿sample_id,in_patch,state,status,rank,err,dist,angle
+T6_B1_N27_A_s1000_n0,False,null,rejected,0,2005,1088,66.1
+T6_B1_N27_A_s1000_n1,False,null,rejected,0,,1685,44.3
+T6_B1_N27_A_s1000_n2,False,null,rejected,0,1521,1124,69.7
+T6_B1_N27_A_s1000_n3,False,null,rejected,0,,1559,46.4
+T6_B1_N27_A_s1000_n4,False,null,rejected,0,2572,1486,49.1
+T6_B1_N27_A_s1000_n5,False,null,rejected,0,1495,1456,50.3
+T6_B1_N27_A_s1000_n6,False,null,rejected,0,2120,1879,32.2
+T6_B1_N27_A_s1000_n7,False,null,rejected,0,1996,1397,51.5
+T6_B1_N27_A_s1200_n0,False,null,rejected,0,2084,929,112.0
+T6_B1_N27_A_s1200_n1,True,null,rejected,0,24,389,350.9
+T6_B1_N27_A_s1200_n2,False,null,rejected,0,1449,1627,54.3
+T6_B1_N27_A_s1200_n3,False,null,rejected,0,1378,903,101.5
+T6_B1_N27_A_s1200_n4,True,null,rejected,0,148,175,358.0
+T6_B1_N27_A_s1200_n5,False,null,rejected,0,2518,1310,78.9

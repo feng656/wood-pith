@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# 模型权重与打包产物
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.zip
+*.tar
+*.tar.gz
+
+# 大数据目录
+outputs/
+runs/
+tmp/
+outputs_grayscale_masks/
+results_urudendro_no_background/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+__MACOSX/

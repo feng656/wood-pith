@@ -1,0 +1,15 @@
+{
+  "schema_version": "racpith.split.v1",
+  "image_dir": "images_no_background",
+  "annotation_dir": "annotations/annual_rings",
+  "pith_file": "pith_location.txt",
+  "splits": {
+    "train": 0.75,
+    "sealed_test": 0.25
+  },
+  "grouped_cv_folds_within_train": 6,
+  "group_key": "tree_id",
+  "stratify_keys": ["treatment", "block"],
+  "search_trials": 20000,
+  "random_seed": 20260906
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "racpith.crops.v1",
+  "crop_size_fractions_of_min_side": [0.16, 0.24, 0.32],
+  "stride_fraction_of_crop": 0.35,
+  "minimum_foreground_fraction": 0.35,
+  "minimum_visible_parent_rings": 3,
+  "minimum_fragment_length_px": 12.0,
+  "maximum_crops_per_section_per_size": 160,
+  "distance_strata": [
+    ["inside", -1.0, 0.0],
+    ["near_outside", 0.0, 0.5],
+    ["mid_outside", 0.5, 1.5],
+    ["far_outside", 1.5, 1000000.0]
+  ],
+  "random_seed": 20260906,
+  "image_format": "png"
+}
+

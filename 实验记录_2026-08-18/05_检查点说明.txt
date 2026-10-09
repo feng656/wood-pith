@@ -1,0 +1,5 @@
+大体积检查点未复制（避免重复占用磁盘），原路径：
+1. 冒烟训练检查点（1 轮，88.3MB）：
+   树髓定位\2D-OA-Pith-python-script-experiments-final\pith2d\runs\oa_pith_smoke\{best.pt,last.pt,epoch_0001.pt}
+2. 小数据训练检查点（epoch 3 断点 + 后续）：
+   树髓定位\2D-OA-Pith-python-script-experiments-final\pith2d\runs\oa_pith_small\{best.pt,last.pt,epoch_*.pt}
