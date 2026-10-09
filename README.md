@@ -45,6 +45,16 @@
 - 模型权重：2D-OA-Pith 150 轮 `best.pt` 通过 [GitHub Releases](../../releases) 发布；
 - ArcPith 全量 5182 crops 的图像本体未入库；68 万条子弧解释记录（628 MB）未入库，需要请联系作者。
 
+## 数据来源与参考文献
+
+主数据为公开数据集 **UruDendro4**（Zenodo，CC BY-NC-SA 4.0），及其前作 **UruDendro**；全部权重均由公开数据训练。
+
+**参考文献**
+
+[1] Marichal, H., Passarella, D., Lucas, P., Profumo, L., Casaravilla, G., Rocha Galli, A., Ambite, F., Randall, G. *UruDendro, a public dataset of 64 cross-section images and manual annual ring delineations of Pinus taeda L.* Annals of Forest Science 82, 25 (2025). https://doi.org/10.1186/s13595-025-01296-5（数据集：https://doi.org/10.5281/zenodo.15110647）
+
+[2] Marichal, H., Blanco, J., Passarella, D., Randall, G. *UruDendro4: A Benchmark Dataset for Automatic Tree-Ring Detection in Cross-Section Images of Pinus taeda L.* 2025 15th IEEE International Conference on Pattern Recognition Systems (ICPRS), pp. 1–7. https://doi.org/10.1109/ICPRS66293.2025.11302831（数据集：https://doi.org/10.5281/zenodo.15653340，CC BY-NC-SA 4.0）
+
 ## 许可证
 
-代码与文档：[MIT](./LICENSE)。数据部分遵循 UruDendro4 的 CC BY 4.0 许可证（Marichal et al. 2024/2025）。
+代码与文档：[MIT](./LICENSE)。数据部分遵循 UruDendro / UruDendro4 的 CC BY-NC-SA 4.0 许可证。
