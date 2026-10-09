@@ -33,7 +33,7 @@
     ├── pith-local/     # 分层评价 + 子弧解释工程（scripts 20-26、src/racpith）
     ├── OC_ArcPith_RG/  # 7 阶段年轮弧联合反演管线（oc_arcpith_rg 包）
     ├── 2D-OA-Pith/     # 深度学习髓心反演工程（含 38 MB 适配数据）
-    └── wood-block/     # 实验线 1 传统方法对比脚本
+    └── wood-block/     # 实验线 1 传统方法对比脚本（含老师代码 teacher-code/gpt_ring_recon_v5.py，经授权发布）
 ```
 
 > 路径对照：总纲附录中的 `代码/pith-local/pith-local/` → 本仓库 `code/pith-local/`；`OC_ArcPith_RG_72h_algorithm_package_adjusted 2/` → `code/OC_ArcPith_RG/`。
@@ -42,6 +42,7 @@
 
 - 主数据为公开数据集 **UruDendro4**（CC BY 4.0，4 棵树 102 截面，年轮标注 + 髓心真值）；
 - `code/2D-OA-Pith/data/` 内含适配后的 manifest（约 38 MB），可直接复现训练链路；
+- 模型权重：2D-OA-Pith 150 轮 `best.pt` 通过 [GitHub Releases](../../releases) 发布；
 - ArcPith 全量 5182 crops 的图像本体未入库；68 万条子弧解释记录（628 MB）未入库，需要请联系作者。
 
 ## 许可证
