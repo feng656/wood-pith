@@ -42,7 +42,7 @@
 
 - 主数据为公开数据集 **UruDendro4**（CC BY 4.0，4 棵树 102 截面，年轮标注 + 髓心真值）；
 - `code/2D-OA-Pith/data/` 内含适配后的 manifest（约 38 MB），可直接复现训练链路；
-- 模型权重：2D-OA-Pith 150 轮 `best.pt` 通过 [GitHub Releases](../../releases) 发布；
+- 模型权重：2D-OA-Pith 前期小数据 10 轮 `best.pt` 通过 [GitHub Releases](../../releases) 发布；中后期权重（服务器 150 轮等）暂不公开，如需请联系本文作者；
 - ArcPith 全量 5182 crops 的图像本体未入库；68 万条子弧解释记录（628 MB）未入库。
 
 ## 数据来源与参考文献
